@@ -1,25 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './utils/sass/bootstrap.scss';
+import {
+    GridLines,
+    BorderFrame
+} from './components';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <React.Fragment>
+        <GridLines />
+        <BorderFrame />
+        <div style={{zIndex: 1}} className="container"><br /><br /><a href="http://google.com">ollo bollo <i className="far fa-arrows-v"></i></a></div>
+      </React.Fragment>
   );
 }
 

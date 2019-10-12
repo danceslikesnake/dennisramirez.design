@@ -1,0 +1,45 @@
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
+
+.BorderFrame {
+    span {
+        background: color-palette('charcoal', 'shade3');
+        z-index: map_get($z-index, 'border-frame');
+
+        &.top {
+            width: 100%;
+            height: 8px;
+            @include positionFixed($top: 0);
+            @include for-screens(desktop) {
+                height: 16px;
+            }
+        }
+
+        &.right {
+            width: 8px;
+            height: 100%;
+            @include positionFixed($right: 0);
+            @include for-screens(desktop) {
+                width: 16px;
+            }
+        }
+
+        &.bottom {
+            width: 100%;
+            height: 8px;
+            @include positionFixed($bottom: 0);
+            @include for-screens(desktop) {
+                height: 16px;
+            }
+        }
+
+        &.left  {
+            width: 8px;
+            height: 100%;
+            @include positionFixed($left: 0);
+            @include for-screens(desktop) {
+                width: 16px;
+            }
+        }
+    }
+}

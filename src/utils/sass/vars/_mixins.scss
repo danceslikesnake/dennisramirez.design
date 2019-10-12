@@ -1,0 +1,178 @@
+@import "./variables";
+
+@mixin sofia-pro-medium {
+    font-family: "Sofia Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin sofia-pro-bold {
+    font-family: "Sofia Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+@mixin sofia-pro-black {
+    font-family: "Sofia Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $cover: false, $centered: null) {
+    position: $position;
+    top: if($cover, 0, $top);
+    right: if($cover, 0, $right);
+    bottom:if($cover, 0, $bottom);
+    left: if($cover, 0, $left);
+
+    @if $centered == 'vertical' {
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    } @else if $centered == 'horizontal' {
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    } @else if $centered == 'both' {
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin positionAbsolute($args...) {
+    @include position(absolute, $args...);
+}
+
+@mixin positionRelative($args...) {
+    @include position(relative, $args...);
+}
+
+@mixin positionFixed($args...) {
+    @include position(fixed, $args...);
+}
+
+@mixin transition($prop, $time, $easing: ease, $delay: 0s) {
+    -webkit-transition: $prop $time $easing $delay;
+    -moz-transition: $prop $time $easing $delay;
+    -ms-transition: $prop $time $easing $delay;
+    -o-transition: $prop $time $easing $delay;
+    transition: $prop $time $easing $delay;
+}
+
+@mixin transform($method) {
+    -webkit-transform: $method;
+    -moz-transform: $method;
+    -ms-transform: $method;
+    -o-transform: $method;
+    transform: $method;
+}
+
+@mixin border-radius($amount) {
+    -webkit-border-radius: $amount;
+    -moz-border-radius: $amount;
+    border-radius: $amount;
+}
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation == 'vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+@mixin background-size($background-size) {
+    -webkit-background-size: $background-size;
+    -moz-background-size: $background-size;
+    -o-background-size: $background-size;
+    background-size: $background-size;
+}
+
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+    @else if $size == mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+
+//Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity = $opacity-ie); //IE8
+}
+
+@mixin set-line-height($number) {
+    line-height: #{ $number * map_get($config, 'base-line-height') + 'rem'};
+}
+
+@mixin set-margin-bottom($number) {
+    margin-bottom: #{ $number * map_get($config, 'base-line-height') + 'rem'};
+}

@@ -1,0 +1,61 @@
+@import "~bulma/bulma";
+@import "./my-variables";
+
+@import "./media_queries";
+@import "./fontawesome/fontawesome";
+@import "./fontawesome/brands";
+@import "./fontawesome/duotone";
+@import "./fontawesome/regular";
+@import "./typography";
+
+// FOR DEBUGGING CURRENT BREAKPOINT
+//@include mq-show-breakpoints((mobile, tablet, desktop, widescreen, fullhd));
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../../assets/fonts/SofiaProMedium.eot');
+    src: local('Sofia Pro Medium'), local('SofiaProMedium'),
+    url('../../assets/fonts/SofiaProMedium.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/SofiaProMedium.woff2') format('woff2'),
+    url('../../assets/fonts/SofiaProMedium.woff') format('woff'),
+    url('../../assets/fonts/SofiaProMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../../assets/fonts/SofiaProBold.eot');
+    src: local('Sofia Pro Bold'), local('SofiaProBold'),
+    url('../../assets/fonts/SofiaProBold.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/SofiaProBold.woff2') format('woff2'),
+    url('../../assets/fonts/SofiaProBold.woff') format('woff'),
+    url('../../assets/fonts/SofiaProBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../../assets/fonts/SofiaProBlack.eot');
+    src: local('Sofia Pro Black'), local('SofiaProBlack'),
+    url('../../assets/fonts/SofiaProBlack.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/SofiaProBlack.woff2') format('woff2'),
+    url('../../assets/fonts/SofiaProBlack.woff') format('woff'),
+    url('../../assets/fonts/SofiaProBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    color: color-palette('charcoal', 'tint1');
+    font-size: typescale(0);
+    min-height: 100%;
+    background: color-palette('charcoal', 'shade3');
+    @include sofia-pro-medium;
+    @include set-line-height(1);
+}
