@@ -29,6 +29,9 @@ class App extends Component {
           <Route path="/">
             <FeaturedProjects featuredProjects={featuredProjects} />
           </Route>
+          <Route path="/starset">
+            <div>ollo</div>
+          </Route>
         </Switch>
       </Router>
     );
