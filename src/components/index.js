@@ -1,5 +1,9 @@
+import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
+import Decorations from "./Decorations/Decorations";
+import Interface from "./Interface/Interface";
 
 export {
-    GridLines,
-    BorderFrame
-} from './Elements';
+  FeaturedProjects,
+  Decorations,
+  Interface
+}

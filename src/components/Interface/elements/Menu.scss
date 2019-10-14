@@ -1,0 +1,13 @@
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
+
+.nav-menu-btn {
+  cursor: pointer;
+  z-index: map_get($z-index, 'covers-interface');
+  @include positionFixed($top: 40px, $right: 40px);
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
+}

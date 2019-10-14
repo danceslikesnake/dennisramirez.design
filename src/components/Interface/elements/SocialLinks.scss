@@ -1,0 +1,21 @@
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
+
+.SocialLinks {
+  z-index: map_get($z-index, 'covers-interface');
+  @include positionFixed($bottom: 40px, $left: 40px);
+
+  li {
+    text-align: center;
+    @include set-margin-bottom(0.5);
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      display: inline-block;
+      font-size: typescale(1);
+      color: rgba(white, 0.2);
+    }
+  }
+}

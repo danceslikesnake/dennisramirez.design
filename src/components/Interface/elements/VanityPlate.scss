@@ -1,0 +1,16 @@
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
+
+.vanity-plate {
+  border: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  font-size: typescale(1);
+  color: rgba(white, 0.2);
+  line-height: map_get($config, 'grid-base') * 5;
+  z-index: map_get($z-index, 'covers-interface');
+  @include sofia-pro-bold;
+  @include positionFixed($top: 40px, $left: 40px);
+}

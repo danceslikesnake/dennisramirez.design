@@ -4,14 +4,22 @@ $tablet: 768px;
 
 // site config
 $config: (
-    'base-font-size': 16px,
-    'base-font-size-em': 1em,
-    'base-line-height': 1.5
+  'base-font-size': 16px,
+  'base-font-size-em': 1em,
+  'base-line-height': 1.5,
+  'grid-base': 8px
 );
 
 $z-index: (
-    'border-frame': 10,
-    'grid-lines': 0,
+  'project-indicator': 110,
+  'border-frame': 100,
+  'covers-interface': 100,
+  'tiles': 90,
+  'scroll-indicator': 30,
+  'grid-lines': 30,
+  'cover-text-content': 20,
+  'cover-scrim': 10,
+  'background-images': 0
 );
 
 $color-palette: (

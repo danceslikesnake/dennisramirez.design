@@ -1,0 +1,8 @@
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
+
+.StaticCover {
+  background: no-repeat center center;
+  @include positionAbsolute($cover: true);
+  @include background-size(cover);
+}

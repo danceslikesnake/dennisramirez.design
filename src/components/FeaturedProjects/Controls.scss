@@ -1,0 +1,28 @@
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
+
+.Controls {
+  z-index: map_get($z-index, 'covers-interface');
+  width: 40px;
+  @include positionFixed($bottom: 40px, $right: 40px);
+
+  li {
+    text-align: center;
+  }
+}
+.control-label {
+  text-transform: uppercase;
+  font-size: typescale(-1);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: white;
+  @include set-line-height(3);
+  @include transition(all 0.5s);
+}
+
+.cover-btn {
+  color: white;
+  font-size: typescale(1);
+  cursor: pointer;
+}

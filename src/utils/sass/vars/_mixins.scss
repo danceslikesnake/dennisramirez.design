@@ -58,12 +58,12 @@
     @include position(fixed, $args...);
 }
 
-@mixin transition($prop, $time, $easing: ease, $delay: 0s) {
-    -webkit-transition: $prop $time $easing $delay;
-    -moz-transition: $prop $time $easing $delay;
-    -ms-transition: $prop $time $easing $delay;
-    -o-transition: $prop $time $easing $delay;
-    transition: $prop $time $easing $delay;
+@mixin transition($props...) {
+    -webkit-transition: $props;
+    -moz-transition: $props;
+    -ms-transition: $props;
+    -o-transition: $props;
+    transition: $props;
 }
 
 @mixin transform($method) {
@@ -149,14 +149,14 @@
 }
 
 //Padding mixin
-@mixin padding($top, $right, $bottom, $left) {
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
     padding-top: $top;
     padding-right: $right;
     padding-bottom: $bottom;
     padding-left: $left;
 }
 //Margin mixin
-@mixin margin($top, $right, $bottom, $left) {
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
     margin-top: $top;
     margin-right: $right;
     margin-bottom: $bottom;
@@ -175,4 +175,8 @@
 
 @mixin set-margin-bottom($number) {
     margin-bottom: #{ $number * map_get($config, 'base-line-height') + 'rem'};
+}
+
+@mixin set-z-index($level) {
+  z-index: map_get($z-index, $level);
 }

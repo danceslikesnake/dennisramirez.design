@@ -1,0 +1,98 @@
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
+
+.tile {
+  display: block;
+  background: red;
+  position: fixed;
+  @include set-z-index('tiles');
+  @media all and (orientation: landscape){
+    width: 25%;
+    height: 50%;
+  }
+  @media all and (orientation: portrait){
+    width: 50%;
+    height: 25%;
+  }
+}
+@media all and (orientation: landscape){
+  .tile-0, .tile-1, .tile-2, .tile-3 {
+    top: -50%;
+  }
+  .tile-4, .tile-5, .tile-6, .tile-7 {
+    top: 100%;
+  }
+}
+@media all and (orientation: portrait){
+  .tile-0, .tile-2, .tile-4, .tile-6 {
+    left: -50%;
+  }
+  .tile-1, .tile-3, .tile-5, .tile-7 {
+    left: 100%;
+  }
+}
+
+.tile-0 {
+  @media all and (orientation: landscape){
+    left: 0;
+  }
+  @media all and (orientation: portrait){
+    top: 0;
+  }
+}
+.tile-1 {
+  @media all and (orientation: landscape){
+    left: 25%;
+  }
+  @media all and (orientation: portrait){
+    top: 0;
+  }
+}
+.tile-2 {
+  @media all and (orientation: landscape){
+    left: 50%;
+  }
+  @media all and (orientation: portrait){
+    top: 25%;
+  }
+}
+.tile-3 {
+  @media all and (orientation: landscape){
+    left: 75%;
+  }
+  @media all and (orientation: portrait){
+    top: 25%;
+  }
+}
+.tile-4 {
+  @media all and (orientation: landscape){
+    left: 0;
+  }
+  @media all and (orientation: portrait){
+    top: 50%;
+  }
+}
+.tile-5 {
+  @media all and (orientation: landscape){
+    left: 25%;
+  }
+  @media all and (orientation: portrait){
+    top: 50%;
+  }
+}
+.tile-6 {
+  @media all and (orientation: landscape){
+    left: 50%;
+  }
+  @media all and (orientation: portrait){
+    top: 75%;
+  }
+}
+.tile-7 {
+  @media all and (orientation: landscape){
+    left: 75%;
+  }
+  @media all and (orientation: portrait){
+    top: 75%;
+  }
+}

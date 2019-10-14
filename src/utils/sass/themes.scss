@@ -1,0 +1,16 @@
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
+
+@each $color-base, $colors in $color-palette {
+  .#{$color-base} {
+    .project-indicator {
+      background: color-palette($color-base, 'base');
+    }
+    .cover-call-to-action, .control-label {
+      color: color-palette($color-base, 'base');
+    }
+    .tile {
+      background: color-palette($color-base, 'shade2');
+    }
+  }
+}

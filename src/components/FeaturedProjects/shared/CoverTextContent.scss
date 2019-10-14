@@ -1,0 +1,43 @@
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
+
+.CoverTextContent {
+  z-index: map_get($z-index, cover-text-content);
+  @include positionAbsolute($bottom: 56px, $left: 50%, $centered: 'horizontal');
+}
+.cover-title {
+  @include sofia-pro-bold;
+  font-size: typescale(4);
+  color: white;
+  @include set-margin-bottom(1);
+}
+
+.cover-description {
+  font-size: typescale(2);
+  color: white;
+  @include set-margin-bottom(2);
+
+  &.charcoal {
+    color: color-palette('charcoal', 'tint1');
+  }
+}
+
+.cover-call-to-action {
+  display: inline-block;
+  height: map_get($config, 'grid-base') * 4;
+  font-size: typescale(2);
+  @include sofia-pro-bold;
+  @include transition(all 0.5s);
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+.cover-logo {
+  @include set-margin-bottom(2);
+
+  img {
+    height: 56px;
+  }
+}

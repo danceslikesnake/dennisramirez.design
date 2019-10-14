@@ -6,7 +6,6 @@
 @import "./fontawesome/brands";
 @import "./fontawesome/duotone";
 @import "./fontawesome/regular";
-@import "./typography";
 
 // FOR DEBUGGING CURRENT BREAKPOINT
 //@include mq-show-breakpoints((mobile, tablet, desktop, widescreen, fullhd));
@@ -59,3 +58,5 @@ body {
     @include sofia-pro-medium;
     @include set-line-height(1);
 }
+
+@import "./themes";

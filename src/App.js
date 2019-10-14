@@ -1,18 +1,38 @@
-import React from 'react';
-import './utils/sass/bootstrap.scss';
+import React, {Component} from 'react';
 import {
-    GridLines,
-    BorderFrame
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import {
+  FeaturedProjects,
+  Interface,
+  Decorations
 } from './components';
 
-function App() {
-  return (
-      <React.Fragment>
-        <GridLines />
-        <BorderFrame />
-        <div style={{zIndex: 1}} className="container"><br /><br /><a href="http://google.com">ollo bollo <i className="far fa-arrows-v"></i></a></div>
-      </React.Fragment>
-  );
+import './utils/sass/bootstrap.scss';
+import projectData from "./assets/json/portfolioData";
+
+// parse out featured projects
+let featuredProjects = projectData.filter((project) => {
+  return project.featured === true;
+});
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Decorations />
+        <Interface />
+        <Switch>
+          <Route path="/">
+            <FeaturedProjects featuredProjects={featuredProjects} />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

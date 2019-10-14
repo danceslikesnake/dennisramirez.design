@@ -1,5 +1,5 @@
-@import '../../utils/sass/my-variables';
-@import "../../utils/sass/media_queries";
+@import '../../../utils/sass/my-variables';
+@import "../../../utils/sass/media_queries";
 
 .GridLines {
     span {
@@ -19,27 +19,31 @@
         }
 
         &.extra-axis-1 {
+          @media all and (orientation: landscape){
+            height: 100%;
+            width: 1px;
+            top: 0;
+            @include positionFixed($left: 25%);
+          }
+          @media all and (orientation: portrait) {
             height: 1px;
             width: 100%;
             @include positionFixed($top: 25%);
-            @include for-screens($from: desktop) {
-                height: 100%;
-                width: 1px;
-                top: 0;
-                @include positionFixed($left: 25%);
-            }
+          }
         }
 
         &.extra-axis-2 {
+          @media all and (orientation: landscape){
+            height: 100%;
+            width: 1px;
+            top: 0;
+            @include positionFixed($left: 75%);
+          }
+          @media all and (orientation: portrait) {
             height: 1px;
             width: 100%;
             @include positionFixed($top: 75%);
-            @include for-screens($from: desktop) {
-                height: 100%;
-                width: 1px;
-                top: 0;
-                @include positionFixed($left: 75%);
-            }
+          }
         }
     }
 }
