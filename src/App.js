@@ -26,11 +26,11 @@ class App extends Component {
         <Decorations />
         <Interface />
         <Switch>
-          <Route path="/">
-            <FeaturedProjects featuredProjects={featuredProjects} />
-          </Route>
           <Route path="/starset">
             <div>ollo</div>
+          </Route>
+          <Route path="/">
+            <FeaturedProjects featuredProjects={featuredProjects} />
           </Route>
         </Switch>
       </Router>
