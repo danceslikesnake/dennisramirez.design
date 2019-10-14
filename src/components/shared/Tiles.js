@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {TimelineLite} from "gsap/all";
+import {TimelineLite} from "gsap";
 
 import './Tiles.scss';
 
