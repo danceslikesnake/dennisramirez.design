@@ -30,14 +30,20 @@ class FeaturedProjects extends Component {
   }
 
   initiateChange = (newProjectKey) => {
+    console.log(newProjectKey);
     let oldProject = this.state.activeProjectKey;
-    this.adjustTheme('tiles', oldProject, newProjectKey);
-    this.adjustTheme('featured-projects', oldProject, newProjectKey);
-    this.setState({
-      indicatorPosition: this.state.indicatorHeight * (newProjectKey - 1),
-      tilesAreAnimating: true
-    });
-    this.tiles.coverAnimation(newProjectKey);
+    if((oldProject === 0 && newProjectKey === 5) || (oldProject === 5 && newProjectKey === 0)) {
+
+    } else {
+      this.adjustTheme('tiles', oldProject, newProjectKey);
+      this.adjustTheme('featured-projects', oldProject, newProjectKey);
+      this.setState({
+        indicatorPosition: this.state.indicatorHeight * (newProjectKey - 1),
+        tilesAreAnimating: true
+      });
+      this.tiles.coverAnimation(newProjectKey);
+    }
+
   };
 
   finishChange = (newProjectKey) => {

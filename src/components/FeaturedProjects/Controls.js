@@ -33,7 +33,7 @@ class Controls extends Component {
     let totalFeaturedProjects = projectCount;
 
     if(direction === 'next') {
-      if(key === totalFeaturedProjects)
+      if(key === totalFeaturedProjects - 1)
         key = 0;
       else
         key++;
@@ -42,11 +42,6 @@ class Controls extends Component {
         key = totalFeaturedProjects - 1;
       else
         key--;
-    }
-    if(key > 0) {
-      document.body.classList.add('cancel-touch-reload');
-    } else {
-      document.body.classList.remove('cancel-touch-reload');
     }
     this.props.initiateChange(key);
   };
