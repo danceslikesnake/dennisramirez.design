@@ -2,7 +2,6 @@
 @import "../../../utils/sass/media_queries";
 
 .StaticCover {
-  touch-action: none;
   background: no-repeat center center;
   @include positionAbsolute($cover: true);
   @include background-size(cover);

@@ -30,18 +30,23 @@ class Controls extends Component {
 
   handleChangeCover = (direction, projectCount, activeProjectKey) => {
     let key = activeProjectKey;
-    let totalFeaturedProjects = projectCount - 1; // we want to exclude the intro
+    let totalFeaturedProjects = projectCount;
 
     if(direction === 'next') {
       if(key === totalFeaturedProjects)
-        key = 1;
+        key = 0;
       else
         key++;
     } else {
-      if(key === 1)
-        key = totalFeaturedProjects;
+      if(key === 0)
+        key = totalFeaturedProjects - 1;
       else
         key--;
+    }
+    if(key > 0) {
+      document.body.classList.add('cancel-touch-reload');
+    } else {
+      document.body.classList.remove('cancel-touch-reload');
     }
     this.props.initiateChange(key);
   };

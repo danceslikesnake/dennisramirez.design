@@ -64,7 +64,7 @@ class App extends Component {
               <div>ollo</div>
             </Route>
             <Route path="/">
-              <FeaturedProjects onScroll={this.handleMouseWheel} featuredProjects={featuredProjects} />
+              <FeaturedProjects featuredProjects={featuredProjects} />
             </Route>
           </Switch>
       </Router>

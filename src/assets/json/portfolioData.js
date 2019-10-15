@@ -2,6 +2,7 @@ const projectData = [
   {
     'id': 'intro',
     'featured': true,
+    'theme': 'charcoal',
     'cover': {
       'title': 'Dennis Ramirez',
       'description': 'All things design and development.',

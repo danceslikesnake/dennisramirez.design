@@ -5,7 +5,6 @@
   .octopus-cross {
     width: 100.53px;
     height: 216px;
-    touch-action: none;
     @include positionAbsolute($top: 25%, $left: 50%, $centered: 'both');
   }
 

@@ -58,5 +58,8 @@ body {
     @include sofia-pro-medium;
     @include set-line-height(1);
 }
+.cancel-touch-reload {
+  overflow-y: hidden;
+}
 
 @import "./themes";
