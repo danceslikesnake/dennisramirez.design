@@ -43,7 +43,12 @@ class Controls extends Component {
       else
         key--;
     }
-    this.props.initiateChange(key);
+    if(key > 0) {
+      document.body.classList.add('cancel-touch-reload');
+    } else {
+      document.body.classList.remove('cancel-touch-reload');
+    }
+    this.props.initiateChange(key, direction);
   };
 
   handleScroll = (event) => {

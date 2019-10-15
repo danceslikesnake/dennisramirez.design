@@ -29,26 +29,20 @@ class FeaturedProjects extends Component {
     });
   }
 
-  initiateChange = (newProjectKey) => {
-    console.log(newProjectKey);
+  initiateChange = (newProjectKey, direction) => {
     let oldProject = this.state.activeProjectKey;
-    if((oldProject === 0 && newProjectKey === 5) || (oldProject === 5 && newProjectKey === 0)) {
-
-    } else {
-      this.adjustTheme('tiles', oldProject, newProjectKey);
-      this.adjustTheme('featured-projects', oldProject, newProjectKey);
-      this.setState({
-        indicatorPosition: this.state.indicatorHeight * (newProjectKey - 1),
-        tilesAreAnimating: true
-      });
-      this.tiles.coverAnimation(newProjectKey);
-    }
-
+    this.adjustTheme('tiles', oldProject, newProjectKey);
+    this.adjustTheme('featured-projects', oldProject, newProjectKey);
+    this.setState({
+      indicatorPosition: this.state.indicatorHeight * (newProjectKey - 1),
+      tilesAreAnimating: true
+    });
+    this.tiles.coverAnimation({newProjectKey: newProjectKey, direction: direction});
   };
 
-  finishChange = (newProjectKey) => {
-    this.setState({activeProjectKey: newProjectKey});
-    this.tiles.revealAnimation();
+  finishChange = (returnVals) => {
+    this.setState({activeProjectKey: returnVals.newProjectKey});
+    this.tiles.revealAnimation(returnVals);
   };
 
   cleanUpChange = () => {
