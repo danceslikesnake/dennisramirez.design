@@ -11,11 +11,11 @@ class CoverTextContent extends Component {
     return (
       <React.Fragment>
         <div className="CoverTextContent has-text-centered-desktop">
-          {(projectKey != 'intro' && logo) &&
+          {(projectKey !== 'intro' && logo) &&
           <div className="cover-logo"><img src={logo.src} alt={projectKey + "-logo"} /></div>
           }
           <h1 className="cover-title">{title}</h1>
-          <p className={projectKey == 'intro' ? 'cover-description charcoal' : 'cover-description'}>{description}</p>
+          <p className={projectKey === 'intro' ? 'cover-description charcoal' : 'cover-description'}>{description}</p>
           {callToAction ? (
             <Link className="cover-call-to-action" to={'/project/' + projectKey}>View Project <i className="fad fa-arrow-circle-right"></i></Link>
           ) : (

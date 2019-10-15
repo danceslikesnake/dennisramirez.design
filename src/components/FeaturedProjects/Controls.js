@@ -13,15 +13,19 @@ const debounce = (func, delay) => {
   }
 };
 
+let ts;
+
 class Controls extends Component {
   componentDidMount() {
     window.addEventListener('wheel', debounce(this.handleScroll, 10));
-    window.addEventListener('touchstart', debounce(this.handleTouch, 10));
+    window.addEventListener('touchstart', debounce(this.handleTouchStart, 10));
+    window.addEventListener('touchend', debounce(this.handleTouchEnd, 10));
   }
 
   componentWillUnmount() {
     window.removeEventListener('wheel', debounce(this.handleScroll, 10));
-    window.addEventListener('touchstart', debounce(this.handleTouch, 10));
+    window.removeEventListener('touchend', debounce(this.handleTouchStart, 10));
+    window.removeEventListener('touchend', debounce(this.handleTouchEnd, 10));
   }
 
   handleChangeCover = (direction, projectCount, activeProjectKey) => {
@@ -55,8 +59,17 @@ class Controls extends Component {
     }
   };
 
-  handleTouch = (event) => {
-    alert('ollo');
+  handleTouchStart = (event) => {
+    ts = event.touches[0].clientY;
+  };
+
+  handleTouchEnd = (event) => {
+    let te = event.changedTouches[0].clientY;
+    if(ts > te+5){
+      alert('prev');
+    }else if(ts < te-5){
+      alert('next');
+    }
   };
 
   render() {
@@ -76,7 +89,7 @@ class Controls extends Component {
           </div>
         </li>
         }
-        <li className="control-label">{activeProjectKey == 0 ? 'Work' : activeProjectKey + ' / ' + (projectsCount - 1)}</li>
+        <li className="control-label">{activeProjectKey === 0 ? 'Work' : activeProjectKey + ' / ' + (projectsCount - 1)}</li>
         <li>
           <div
             className="cover-btn next"

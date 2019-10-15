@@ -48,7 +48,7 @@ class Tiles extends Component {
 
   coverAnimation(onCoverReturn) {
     this.setState({onCoverReturn: onCoverReturn});
-    if(this.state.orientation == 'landscape') {
+    if(this.state.orientation === 'landscape') {
       this.tilesFromTop.play(0);
       this.tilesFromBottom.play(0);
     } else {
@@ -63,7 +63,7 @@ class Tiles extends Component {
   };
 
   revealAnimation() {
-    if(this.state.orientation == 'landscape') {
+    if(this.state.orientation === 'landscape') {
       this.tilesFromTopReveal.play(0);
       this.tilesFromBottomReveal.play(0);
     } else {
@@ -82,7 +82,7 @@ class Tiles extends Component {
     let height = window.innerHeight;
     let orientation = '';
 
-    if(width > height || width == height) {
+    if(width > height || width === height) {
       orientation = 'landscape';
     } else {
       orientation = 'portrait';
