@@ -25,7 +25,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      imgsLoaded: []
+      bgimgsLoaded: [],
+      logosLoaded: []
     }
   }
 
@@ -39,7 +40,16 @@ class App extends Component {
           arr.push(img);
           featuredProjects[index].cover.bgImg = img;
           this.setState({imgsLoaded: arr});
-        }
+        };
+
+        let img2 = new Image();
+        img2.src = require('./assets/img/' + project.id + '-logo.svg');
+        img2.onload= () => {
+          let arr = this.state.logosLoaded;
+          arr.push(img2);
+          featuredProjects[index].cover.logo = img2;
+          this.setState({logosLoaded: arr});
+        };
       }
     });
   }
@@ -50,7 +60,7 @@ class App extends Component {
       <Router>
         <Decorations />
         <Interface />
-        {this.state.imgsLoaded.length == 5 ? (
+        {this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5 ? (
           <Switch>
             <Route path="/starset">
               <div>ollo</div>

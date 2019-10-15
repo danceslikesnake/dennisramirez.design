@@ -12,7 +12,7 @@ class StaticCover extends Component {
 
     return (
       <div className="StaticCover" style={{backgroundImage: `url(${coverData.bgImg.src})`}}>
-        <CoverTextContent title={coverData.title} description={coverData.description} projectKey={projectKey} callToAction />
+        <CoverTextContent title={coverData.title} description={coverData.description} logo={coverData.logo} projectKey={projectKey} callToAction />
       </div>
     );
   }

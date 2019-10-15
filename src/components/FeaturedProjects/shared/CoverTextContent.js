@@ -5,13 +5,13 @@ import './CoverTextContent.scss';
 
 class CoverTextContent extends Component {
   render() {
-    const {projectKey, title, description, callToAction} = this.props;
+    const {projectKey, title, description, callToAction, logo} = this.props;
 
     return (
       <React.Fragment>
         <div className="CoverTextContent has-text-centered">
-          {projectKey != 'intro' &&
-          <div className="cover-logo"><img src={require('../../../assets/img/' + projectKey + '-logo.svg')} alt={projectKey + "-logo"} /></div>
+          {(projectKey != 'intro' && logo) &&
+          <div className="cover-logo"><img src={logo.src} alt={projectKey + "-logo"} /></div>
           }
           <h1 className="cover-title">{title}</h1>
           <p className={projectKey == 'intro' ? 'cover-description charcoal' : 'cover-description'}>{description}</p>
