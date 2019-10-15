@@ -71,10 +71,10 @@ class Controls extends Component {
       if (ts > te + 5) {
         this.handleChangeCover('next', this.props.projectsCount, this.props.activeProjectKey);
       } else if (ts < te - 5) {
-        event.preventDefault();
         this.handleChangeCover('prev', this.props.projectsCount, this.props.activeProjectKey);
       }
     }
+    event.preventDefault();
   };
 
   render() {
