@@ -55,12 +55,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(featuredProjects);
-    return (
-      <Router>
-        <Decorations />
-        <Interface />
-        {(this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5) ? (
+    if(this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5) {
+      return(
+        <Router>
+          <Decorations />
+          <Interface />
           <Switch>
             <Route path="/starset">
               <div>ollo</div>
@@ -69,13 +68,13 @@ class App extends Component {
               <FeaturedProjects featuredProjects={featuredProjects} />
             </Route>
           </Switch>
-        ) : (
-          <div>bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br /></div>
-        )
-
-        }
-      </Router>
-    );
+        </Router>
+      );
+    } else {
+      return (
+        <div>bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br /></div>
+      );
+    }
   }
 }
 
