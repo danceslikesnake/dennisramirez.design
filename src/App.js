@@ -31,6 +31,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('mounting');
     featuredProjects.forEach((project, index) => {
       if(project.id !== 'intro') {
         let img = new Image();
@@ -55,26 +56,20 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5) {
-      return(
-        <Router>
-          <Decorations />
-          <Interface />
+    return (
+      <Router>
+        <Decorations />
+        <Interface />
           <Switch>
-            <Route path="/starset">
+            <Route path="/project/:id">
               <div>ollo</div>
             </Route>
             <Route path="/">
               <FeaturedProjects featuredProjects={featuredProjects} />
             </Route>
           </Switch>
-        </Router>
-      );
-    } else {
-      return (
-        <div>bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br /></div>
-      );
-    }
+      </Router>
+    );
   }
 }
 

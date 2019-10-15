@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './CoverTextContent.scss';
@@ -16,7 +17,7 @@ class CoverTextContent extends Component {
           <h1 className="cover-title">{title}</h1>
           <p className={projectKey == 'intro' ? 'cover-description charcoal' : 'cover-description'}>{description}</p>
           {callToAction ? (
-            <a className="cover-call-to-action" href="http://www.google.com">View Project <i className="fad fa-arrow-circle-right"></i></a>
+            <Link className="cover-call-to-action" to={'/project/' + projectKey}>View Project <i className="fad fa-arrow-circle-right"></i></Link>
           ) : (
             <span className="cover-call-to-action">&nbsp;</span>
           )}
