@@ -17,25 +17,25 @@ class OtherComponent extends Component {
 
   componentDidMount() {
     let img1 = new Image();
-    img1.src = Img1;
+    img1.src = 'https://images.unsplash.com/photo-1554158577-dd684bc228fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60';
     img1.onload = () =>{
 
     };
 
     let img2 = new Image();
-    img2.src = Img2;
+    img2.src = 'https://images.unsplash.com/photo-1563212107-ea92a7ba3e1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2563&q=80';
     img2.onload = () =>{
 
     };
 
     let img3 = new Image();
-    img3.src = Img3;
+    img3.src = 'https://images.unsplash.com/photo-1563212108-928913ca0ee2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2563&q=80';
     img3.onload = () =>{
 
     };
 
     let img4 = new Image();
-    img4.src = Img4;
+    img4.src = 'https://images.unsplash.com/photo-1563109696-9a5563d6e0ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2554&q=80';
     img4.onload = () =>{
 
     }

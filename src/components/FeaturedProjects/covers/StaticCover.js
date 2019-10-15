@@ -8,10 +8,10 @@ import './StaticCover.scss';
 class StaticCover extends Component {
   render() {
     const {coverData, projectKey} = this.props;
-    const bgImage = require('../../../assets/img/' + projectKey + '-cover.jpg');
+    //const bgImage = require('../../../assets/img/' + projectKey + '-cover.jpg');
 
     return (
-      <div className="StaticCover" style={{backgroundImage: `url(${bgImage})`}}>
+      <div className="StaticCover" style={{backgroundImage: `url(${coverData.bgImg.src})`}}>
         <CoverTextContent title={coverData.title} description={coverData.description} projectKey={projectKey} callToAction />
       </div>
     );

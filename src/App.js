@@ -7,7 +7,8 @@ import {
 
 import {
   Interface,
-  Decorations
+  Decorations,
+  FeaturedProjects
 } from './components';
 
 import './utils/sass/bootstrap.scss';
@@ -18,17 +19,38 @@ let featuredProjects = projectData.filter((project) => {
   return project.featured === true;
 });
 
-//const OtherComponent = React.lazy(() => import('./OtherComponent'));
-const FeaturedProjects = lazy(() => import('./components/FeaturedProjects/FeaturedProjects'));
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      imgsLoaded: []
+    }
+  }
+
+  componentDidMount() {
+    featuredProjects.forEach((project, index) => {
+      if(project.id !== 'intro') {
+        let img = new Image();
+        img.src = require('./assets/img/' + project.id + '-cover.jpg');
+        img.onload= () => {
+          let arr = this.state.imgsLoaded;
+          arr.push(img);
+          featuredProjects[index].cover.bgImg = img;
+          this.setState({imgsLoaded: arr});
+        }
+      }
+    });
+  }
 
   render() {
+    console.log(featuredProjects);
     return (
       <Router>
         <Decorations />
         <Interface />
-        <Suspense fallback={<div>loading...</div>}>
+        {this.state.imgsLoaded.length == 5 ? (
           <Switch>
             <Route path="/starset">
               <div>ollo</div>
@@ -37,7 +59,11 @@ class App extends Component {
               <FeaturedProjects featuredProjects={featuredProjects} />
             </Route>
           </Switch>
-        </Suspense>
+        ) : (
+          <div>bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br />bollo oolb slj lkajsd fa<br /></div>
+        )
+
+        }
       </Router>
     );
   }
