@@ -36,7 +36,7 @@ class App extends Component {
         let img = new Image();
         img.src = require('./assets/img/' + project.id + '-cover.jpg');
         img.onload= () => {
-          let arr = this.state.imgsLoaded;
+          let arr = this.state.bgImgsLoaded;
           arr.push(img);
           featuredProjects[index].cover.bgImg = img;
           this.setState({bgImgsLoaded: arr});
