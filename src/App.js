@@ -25,7 +25,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      bgimgsLoaded: [],
+      bgImgsLoaded: [],
       logosLoaded: []
     }
   }
@@ -39,7 +39,7 @@ class App extends Component {
           let arr = this.state.imgsLoaded;
           arr.push(img);
           featuredProjects[index].cover.bgImg = img;
-          this.setState({imgsLoaded: arr});
+          this.setState({bgImgsLoaded: arr});
         };
 
         let img2 = new Image();
