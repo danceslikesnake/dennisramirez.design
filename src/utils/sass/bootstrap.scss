@@ -62,11 +62,11 @@ body {
   overflow-y: hidden;
   touch-action: none;
 
-  > #featured-projects {
+  #featured-projects {
     touch-action: none;
   }
 
-  > .cover {
+  .cover-wrapper {
     touch-action: none;
   }
 }

@@ -10,7 +10,7 @@ class IntroCover extends Component {
     const {coverData, projectKey} = this.props;
 
     return (
-      <div className="IntroCover" className="cover">
+      <div className="IntroCover cover-wrapper">
         <div className="octopus-cross-wrapper">
           <svg className="octopus-cross" viewBox="0 0 234.45 502.15">
             <title>{'ocotpus-cross'}</title>

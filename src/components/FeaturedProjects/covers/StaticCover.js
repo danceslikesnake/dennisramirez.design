@@ -11,7 +11,7 @@ class StaticCover extends Component {
     //const bgImage = require('../../../assets/img/' + projectKey + '-cover.jpg');
 
     return (
-      <div className="StaticCover" style={{backgroundImage: `url(${coverData.bgImg.src})`}} className="cover">
+      <div className="StaticCover cover-wrapper" style={{backgroundImage: `url(${coverData.bgImg.src})`}}>
         <CoverTextContent title={coverData.title} description={coverData.description} logo={coverData.logo} projectKey={projectKey} callToAction />
       </div>
     );
