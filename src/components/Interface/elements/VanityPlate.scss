@@ -7,10 +7,14 @@
   background: none;
   outline: none;
   cursor: pointer;
-  font-size: typescale(1);
+  font-size: typescale(0);
   color: rgba(white, 0.2);
-  line-height: map_get($config, 'grid-base') * 5;
+  line-height: map_get($config, 'grid-base') * 3;
   z-index: map_get($z-index, 'covers-interface');
   @include sofia-pro-bold;
-  @include positionFixed($top: 40px, $left: 40px);
+  @include positionFixed($top: 32px, $left: 24px);
+  @include for-screens(desktop) {
+    @include positionFixed($top: 40px, $left: 40px);
+    font-size: typescale(1);
+  }
 }

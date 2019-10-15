@@ -10,9 +10,11 @@
 
   .availability {
     color: white;
-    font-size: typescale(2);
     @include sofia-pro-bold;
     @include positionAbsolute($top: 50%, $left: 50%, $centered: 'both');
+    @include for-screens(desktop) {
+      font-size: typescale(2);
+    }
   }
 
   .scroll-indicator {

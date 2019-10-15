@@ -4,10 +4,17 @@
 .nav-menu-btn {
   cursor: pointer;
   z-index: map_get($z-index, 'covers-interface');
-  @include positionFixed($top: 40px, $right: 40px);
+  @include positionFixed($top: 32px, $right: 24px);
+  @include for-screens(desktop) {
+    @include positionFixed($top: 40px, $right: 40px);
+  }
 
   img {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
+    @include for-screens(desktop) {
+      height: 32px;
+      width: 32px;
+    }
   }
 }

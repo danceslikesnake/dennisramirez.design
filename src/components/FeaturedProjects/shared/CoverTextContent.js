@@ -10,7 +10,7 @@ class CoverTextContent extends Component {
 
     return (
       <React.Fragment>
-        <div className="CoverTextContent has-text-centered">
+        <div className="CoverTextContent has-text-centered-desktop">
           {(projectKey != 'intro' && logo) &&
           <div className="cover-logo"><img src={logo.src} alt={projectKey + "-logo"} /></div>
           }

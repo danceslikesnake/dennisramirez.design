@@ -3,19 +3,32 @@
 
 .CoverTextContent {
   z-index: map_get($z-index, cover-text-content);
-  @include positionAbsolute($bottom: 56px, $left: 50%, $centered: 'horizontal');
+  @include positionAbsolute($bottom: 32px, $left: 24px);
+  @include for-screens(desktop) {
+    @include positionAbsolute($bottom: 56px, $left: 50%, $centered: 'horizontal');
+  }
 }
 .cover-title {
-  @include sofia-pro-bold;
-  font-size: typescale(4);
+  font-size: typescale(2);
   color: white;
+  padding-right: 24px;
+  @include sofia-pro-bold;
   @include set-margin-bottom(1);
+  @include for-screens(desktop) {
+    padding-right: 0;
+    font-size: typescale(4);
+  }
 }
 
 .cover-description {
-  font-size: typescale(2);
   color: white;
-  @include set-margin-bottom(2);
+  padding-right: 64px;
+  @include set-margin-bottom(1);
+  @include for-screens(desktop) {
+    padding-right: 0;
+    font-size: typescale(2);
+    @include set-margin-bottom(2);
+  }
 
   &.charcoal {
     color: color-palette('charcoal', 'tint1');
@@ -24,10 +37,12 @@
 
 .cover-call-to-action {
   display: inline-block;
-  height: map_get($config, 'grid-base') * 4;
-  font-size: typescale(2);
   @include sofia-pro-bold;
   @include transition(all 0.5s);
+  @include for-screens(desktop) {
+    height: map_get($config, 'grid-base') * 4;
+    font-size: typescale(2);
+  }
 
   i {
     vertical-align: middle;
@@ -35,9 +50,15 @@
 }
 
 .cover-logo {
-  @include set-margin-bottom(2);
+  @include set-margin-bottom(1);
+  @include for-screens(desktop) {
+    @include set-margin-bottom(2);
+  }
 
   img {
-    height: 56px;
+    height: 48px;
+    @include for-screens(desktop) {
+      height: 56px;
+    }
   }
 }

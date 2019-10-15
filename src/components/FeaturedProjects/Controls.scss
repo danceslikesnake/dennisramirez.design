@@ -3,8 +3,11 @@
 
 .Controls {
   z-index: map_get($z-index, 'covers-interface');
-  width: 40px;
-  @include positionFixed($bottom: 40px, $right: 40px);
+  width: 36px;
+  @include positionFixed($bottom: 32px, $right: 24px);
+  @include for-screens(desktop) {
+    @include positionFixed($bottom: 40px, $right: 40px);
+  }
 
   li {
     text-align: center;
@@ -17,8 +20,11 @@
   text-align: center;
   width: 100%;
   color: white;
-  @include set-line-height(3);
+  @include set-line-height(2);
   @include transition(all 0.5s);
+  @include for-screens(desktop) {
+    @include set-line-height(3);
+  }
 }
 
 .cover-btn {

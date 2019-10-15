@@ -3,7 +3,11 @@
 
 .SocialLinks {
   z-index: map_get($z-index, 'covers-interface');
+  display: none;
   @include positionFixed($bottom: 40px, $left: 40px);
+  @include for-screens(desktop) {
+    display: block;
+  }
 
   li {
     text-align: center;
