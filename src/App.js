@@ -60,7 +60,7 @@ class App extends Component {
       <Router>
         <Decorations />
         <Interface />
-        {this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5 ? (
+        {(this.state.bgImgsLoaded.length == 5 && this.state.logosLoaded.length == 5) ? (
           <Switch>
             <Route path="/starset">
               <div>ollo</div>
