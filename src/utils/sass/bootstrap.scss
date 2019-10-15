@@ -60,6 +60,15 @@ body {
 }
 .cancel-touch-reload {
   overflow-y: hidden;
+  touch-action: none;
+
+  > #featured-projects {
+    touch-action: none;
+  }
+
+  > .cover {
+    touch-action: none;
+  }
 }
 
 @import "./themes";
