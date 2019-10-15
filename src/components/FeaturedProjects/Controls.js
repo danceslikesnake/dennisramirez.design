@@ -66,9 +66,9 @@ class Controls extends Component {
   handleTouchEnd = (event) => {
     let te = event.changedTouches[0].clientY;
     if(ts > te+5){
-      alert('prev');
+      this.handleChangeCover('next', this.props.projectsCount, this.props.activeProjectKey);
     }else if(ts < te-5){
-      alert('next');
+      this.handleChangeCover('prev', this.props.projectsCount, this.props.activeProjectKey);
     }
   };
 
