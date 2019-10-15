@@ -16,16 +16,20 @@ const debounce = (func, delay) => {
 let ts;
 
 class Controls extends Component {
+  constructor(props){
+    super(props);
+  }
+
   componentDidMount() {
-    window.addEventListener('wheel', debounce(this.handleScroll, 10));
-    window.addEventListener('touchstart', debounce(this.handleTouchStart, 10));
-    window.addEventListener('touchend', debounce(this.handleTouchEnd, 10));
+    window.addEventListener('wheel', this.handleScroll);
+    window.addEventListener('touchstart', this.handleTouchStart);
+    window.addEventListener('touchend', this.handleTouchEnd);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('wheel', debounce(this.handleScroll, 10));
-    window.removeEventListener('touchend', debounce(this.handleTouchStart, 10));
-    window.removeEventListener('touchend', debounce(this.handleTouchEnd, 10));
+    window.removeEventListener('wheel', this.handleScroll);
+    window.removeEventListener('touchstart', this.handleTouchStart);
+    window.removeEventListener('touchend', this.handleTouchEnd);
   }
 
   handleChangeCover = (direction, projectCount, activeProjectKey) => {
@@ -51,7 +55,7 @@ class Controls extends Component {
     this.props.initiateChange(key, direction);
   };
 
-  handleScroll = (event) => {
+  handleScroll = debounce((event) => {
     //Normalize event wheel delta
     var delta = event.wheelDelta / 30 || -event.detail;
 
@@ -62,15 +66,15 @@ class Controls extends Component {
       else if(delta > 1)
         this.handleChangeCover('prev', this.props.projectsCount, this.props.activeProjectKey);
     }
-  };
+  }, 15);
 
-  handleTouchStart = (event) => {
+  handleTouchStart = debounce((event) => {
     if(!this.props.tilesAreAnimating) {
       ts = event.touches[0].clientY;
     }
-  };
+  }, 15);
 
-  handleTouchEnd = (event) => {
+  handleTouchEnd = debounce((event) => {
     if(!this.props.tilesAreAnimating) {
     let te = event.changedTouches[0].clientY;
       if (ts > te + 5) {
@@ -80,7 +84,7 @@ class Controls extends Component {
       }
     }
     event.preventDefault();
-  };
+  }, 15);
 
   render() {
     const { projectsCount, activeProjectKey, tilesAreAnimating } = this.props;

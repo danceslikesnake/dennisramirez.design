@@ -29,6 +29,9 @@ class FeaturedProjects extends Component {
     });
   }
 
+  componentWillUnmount() {
+  }
+
   initiateChange = (newProjectKey, direction) => {
     let oldProject = this.state.activeProjectKey;
     this.adjustTheme('tiles', oldProject, newProjectKey);
