@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
 
-import CoverTextContent from "../shared/CoverTextContent";
+import CoverTextContent from "../../shared/CoverTextContent";
 
 import './IntroCover.scss';
 

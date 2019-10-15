@@ -20,14 +20,16 @@ const projectData = [
     },
     'detail': {
       'active': true,
-      'title': '',
-      'links': {
-        0: {
-          'url': 'http://www.google.com',
+      'title': 'StarsetOnline.com',
+      'links': [
+        {
+          'url': 'https://starsetonline.com/',
           'label': 'View Website',
-          'icon': ''
+          'icon': 'fad fa-external-link'
         }
-      }
+      ],
+      'description': 'For the release of their album Divisions, Starset’s website was taken over \n' +
+        'by the architecture and this is the thing.'
     }
   },
   {
@@ -41,14 +43,16 @@ const projectData = [
     },
     'detail': {
       'active': true,
-      'title': '',
-      'links': {
-        0: {
-          'url': 'http://www.google.com',
+      'title': 'Punk Goes MySpace',
+      'links': [
+        {
+          'url': 'https://punkgoes.com',
           'label': 'View Website',
-          'icon': ''
+          'icon': 'fad fa-external-link'
         }
-      }
+      ],
+      'description': 'For the release of their album Divisions, Starset’s website was taken over \n' +
+        'by the architecture and this is the thing.'
     }
   },
   {
@@ -77,13 +81,13 @@ const projectData = [
     'detail': {
       'active': true,
       'title': '',
-      'links': {
-        0: {
-          'url': 'http://www.google.com',
-          'label': 'View Website',
-          'icon': ''
+      'links': [
+        {
+          'url': 'https://starsetonline.com/',
+          'label': 'View Github',
+          'icon': 'fab fa-github'
         }
-      }
+      ],
     }
   },
   {
@@ -105,14 +109,14 @@ const projectData = [
     'featured': false,
     'detail': {
       'active': true,
-      'title': '',
-      'links': {
-        0: {
-          'url': 'http://www.google.com',
+      'title': 'GetWala.com',
+      'links': [
+        {
+          'url': 'https://getwala.com/',
           'label': 'View Website',
-          'icon': ''
+          'icon': 'fad fa-external-link'
         }
-      }
+      ],
     }
   }
 ];

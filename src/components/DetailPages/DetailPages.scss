@@ -1,0 +1,32 @@
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
+
+.detail-cover {
+  height: 50vh;
+  background: center center no-repeat;
+  position: relative;
+  border: 16px solid color-palette('charcoal', 'shade3');
+  @include background-size(cover);
+
+  &:before {
+    display: block;
+    content: "";
+    background: rgba(color-palette('charcoal', 'shade3'), 0.7);
+    @include positionAbsolute($cover: true);
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    height: 16px;
+    background: color-palette('dark-byzantium', 'base');
+    @include positionAbsolute($bottom: -16px, $left: -16px, $right: -16px);
+  }
+}
+.detail-content {
+  @include background-gradient($start-color: white, $end-color: color-palette('lavender-indigo', 'tint5'), $orientation: vertical);
+}
+.detail-cover-logo {
+  height: 50%;
+  @include positionAbsolute($top: 50%, $left: 50%, $centered: both);
+}

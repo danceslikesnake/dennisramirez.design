@@ -16,10 +16,6 @@ const debounce = (func, delay) => {
 let ts;
 
 class Controls extends Component {
-  constructor(props){
-    super(props);
-  }
-
   componentDidMount() {
     window.addEventListener('wheel', this.handleScroll);
     window.addEventListener('touchstart', this.handleTouchStart);

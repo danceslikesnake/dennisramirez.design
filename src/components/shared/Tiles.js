@@ -70,8 +70,8 @@ class Tiles extends Component {
         this.tilesFromTop.play(0);
         this.tilesFromBottom.play(0);
       } else {
-        this.tilesFromTopPrev .play(0);
-        this.tilesFromBottomPrev .play(0);
+        this.tilesFromTopPrev.play(0);
+        this.tilesFromBottomPrev.play(0);
       }
     } else {
      if(onCoverReturn.direction === 'next') {

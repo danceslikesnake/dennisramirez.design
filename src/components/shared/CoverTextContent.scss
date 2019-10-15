@@ -1,5 +1,5 @@
-@import '../../../utils/sass/my-variables';
-@import "../../../utils/sass/media_queries";
+@import '../../utils/sass/my-variables';
+@import "../../utils/sass/media_queries";
 
 .CoverTextContent {
   z-index: map_get($z-index, cover-text-content);

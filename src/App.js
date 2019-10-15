@@ -8,7 +8,8 @@ import {
 import {
   Interface,
   Decorations,
-  FeaturedProjects
+  FeaturedProjects,
+  DetailPages
 } from './components';
 
 import './utils/sass/bootstrap.scss';
@@ -60,9 +61,17 @@ class App extends Component {
         <Decorations />
         <Interface />
           <Switch>
-            <Route path="/project/:id">
-              <div>ollo</div>
-            </Route>
+            <Route
+              path="/project/:id"
+              render={(props) => {
+                let selectedProject = projectData.filter((project) => {
+                  return project.id === props.match.params.id;
+                });
+                return(
+                  <DetailPages projectKey={selectedProject[0].id} projectData={selectedProject[0].detail} />
+                  );
+              }}
+            />
             <Route path="/">
               <FeaturedProjects featuredProjects={featuredProjects} />
             </Route>
