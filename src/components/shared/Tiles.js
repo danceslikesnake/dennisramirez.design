@@ -31,8 +31,10 @@ class Tiles extends Component {
       [this.tiles[4], this.tiles[5], this.tiles[6], this.tiles[7]]
     ];
     let portraitTileSets = [
-      [this.tiles[0], this.tiles[2], this.tiles[4], this.tiles[6]],
-      [this.tiles[1], this.tiles[3], this.tiles[5], this.tiles[7]]
+      /*[this.tiles[0], this.tiles[2], this.tiles[4], this.tiles[6]],
+      [this.tiles[1], this.tiles[3], this.tiles[5], this.tiles[7]]*/
+      [this.tiles[6], this.tiles[4], this.tiles[2], this.tiles[0]],
+      [this.tiles[7], this.tiles[5], this.tiles[3], this.tiles[1]]
     ];
 
     this.tilesFromTop.staggerTo(landscapeTileSets[0], 0.3, {top: 0}, 0.1);
