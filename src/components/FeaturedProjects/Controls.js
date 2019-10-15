@@ -60,12 +60,14 @@ class Controls extends Component {
   };
 
   handleTouchStart = (event) => {
-    ts = event.touches[0].clientY;
+    if(!this.props.tilesAreAnimating) {
+      ts = event.touches[0].clientY;
+    }
   };
 
   handleTouchEnd = (event) => {
-    let te = event.changedTouches[0].clientY;
     if(!this.props.tilesAreAnimating) {
+    let te = event.changedTouches[0].clientY;
       if (ts > te + 5) {
         this.handleChangeCover('next', this.props.projectsCount, this.props.activeProjectKey);
       } else if (ts < te - 5) {
