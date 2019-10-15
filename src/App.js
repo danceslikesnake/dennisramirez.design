@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense, lazy} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 import {
-  FeaturedProjects,
   Interface,
   Decorations
 } from './components';
@@ -19,20 +18,26 @@ let featuredProjects = projectData.filter((project) => {
   return project.featured === true;
 });
 
+//const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const FeaturedProjects = lazy(() => import('./components/FeaturedProjects/FeaturedProjects'));
+
 class App extends Component {
+
   render() {
     return (
       <Router>
         <Decorations />
         <Interface />
-        <Switch>
-          <Route path="/starset">
-            <div>ollo</div>
-          </Route>
-          <Route path="/">
-            <FeaturedProjects featuredProjects={featuredProjects} />
-          </Route>
-        </Switch>
+        <Suspense fallback={<div>loading...</div>}>
+          <Switch>
+            <Route path="/starset">
+              <div>ollo</div>
+            </Route>
+            <Route path="/">
+              <FeaturedProjects featuredProjects={featuredProjects} />
+            </Route>
+          </Switch>
+        </Suspense>
       </Router>
     );
   }
