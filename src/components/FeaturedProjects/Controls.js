@@ -16,10 +16,12 @@ const debounce = (func, delay) => {
 class Controls extends Component {
   componentDidMount() {
     window.addEventListener('wheel', debounce(this.handleScroll, 10));
+    window.addEventListener('touchstart', debounce(this.handleScroll, 10));
   }
 
   componentWillUnmount() {
     window.removeEventListener('wheel', debounce(this.handleScroll, 10));
+    window.addEventListener('touchstart', debounce(this.handleScroll, 10));
   }
 
   handleChangeCover = (direction, projectCount, activeProjectKey) => {
@@ -51,6 +53,10 @@ class Controls extends Component {
       else if(delta > 1)
         this.handleChangeCover('prev', this.props.projectsCount, this.props.activeProjectKey);
     }
+  };
+
+  handleTouch = (event) => {
+    alert('ollo');
   };
 
   render() {
