@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('mounting');
     featuredProjects.forEach((project, index) => {
       if(project.id !== 'intro') {
         let img = new Image();
@@ -65,7 +64,7 @@ class App extends Component {
               <div>ollo</div>
             </Route>
             <Route path="/">
-              <FeaturedProjects featuredProjects={featuredProjects} />
+              <FeaturedProjects onScroll={this.handleMouseWheel} featuredProjects={featuredProjects} />
             </Route>
           </Switch>
       </Router>

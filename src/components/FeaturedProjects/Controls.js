@@ -3,7 +3,25 @@ import PropTypes from 'prop-types';
 
 import './Controls.scss';
 
+const debounce = (func, delay) => {
+  let inDebounce;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(() => func.apply(context, args), delay)
+  }
+};
+
 class Controls extends Component {
+  componentDidMount() {
+    window.addEventListener('wheel', debounce(this.handleScroll, 10));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('wheel', debounce(this.handleScroll, 10));
+  }
+
   handleChangeCover = (direction, projectCount, activeProjectKey) => {
     let key = activeProjectKey;
     let totalFeaturedProjects = projectCount - 1; // we want to exclude the intro
@@ -20,6 +38,19 @@ class Controls extends Component {
         key--;
     }
     this.props.initiateChange(key);
+  };
+
+  handleScroll = (event) => {
+    //Normalize event wheel delta
+    var delta = event.wheelDelta / 30 || -event.detail;
+
+    //If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    if(!this.props.tilesAreAnimating) {
+      if(delta < -1)
+        this.handleChangeCover('next', this.props.projectsCount, this.props.activeProjectKey);
+      else if(delta > 1)
+        this.handleChangeCover('prev', this.props.projectsCount, this.props.activeProjectKey);
+    }
   };
 
   render() {

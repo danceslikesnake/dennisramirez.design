@@ -44,12 +44,6 @@ class Tiles extends Component {
     this.tilesFromRight.staggerTo(portraitTileSets[1], 0.4, {left: '50%'}, 0.1);
     this.tilesFromLeftReveal.staggerTo(portraitTileSets[0], 0.4, {left: '-50%'}, 0.1);
     this.tilesFromRightReveal.staggerTo(portraitTileSets[1], 0.4, {left: '100%'}, 0.1);
-
-    window.addEventListener('resize', this.updateOrientation);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateOrientation);
   }
 
   coverAnimation(onCoverReturn) {

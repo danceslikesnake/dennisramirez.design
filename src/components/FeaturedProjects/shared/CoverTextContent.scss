@@ -5,6 +5,8 @@
   z-index: map_get($z-index, cover-text-content);
   @include positionAbsolute($bottom: 32px, $left: 24px);
   @include for-screens(desktop) {
+    width: 100%;
+    padding: 0 56px;
     @include positionAbsolute($bottom: 56px, $left: 50%, $centered: 'horizontal');
   }
 }
@@ -15,6 +17,7 @@
   @include sofia-pro-bold;
   @include set-margin-bottom(1);
   @include for-screens(desktop) {
+    @include set-margin-bottom(1);
     padding-right: 0;
     font-size: typescale(4);
   }
@@ -27,7 +30,8 @@
   @include for-screens(desktop) {
     padding-right: 0;
     font-size: typescale(2);
-    @include set-margin-bottom(2);
+    @include set-margin-bottom(1.5);
+    @include set-line-height(1.5);
   }
 
   &.charcoal {
@@ -52,7 +56,7 @@
 .cover-logo {
   @include set-margin-bottom(1);
   @include for-screens(desktop) {
-    @include set-margin-bottom(2);
+    @include set-margin-bottom(1.5);
   }
 
   img {
